@@ -1,22 +1,28 @@
-# 発酵・地域フィールドワーク ナレッジライブラリ
+# 発酵ごはん レシピ帳
 
-料理教室、フィールドワーク、工場見学、発酵講座、商品開発相談の記録を整理した静的サイトです。
+静的HTMLのレシピサイトです。
 
-## 公開方法
+## レシピを追加する場所
 
-GitHub Pagesで公開できます。
+`recipes.js` の `window.RECIPES = [...]` に、以下の形式で1件追加します。
 
-1. このフォルダの中身をGitHubリポジトリへアップロードする
-2. GitHubの `Settings` から `Pages` を開く
-3. `Deploy from a branch` を選ぶ
-4. `main` ブランチ、`/root` を選んで保存する
-5. 数分後に `https://ユーザー名.github.io/リポジトリ名/` で公開される
+```js
+{
+  name: "提出者名",
+  title: "料理名",
+  ferment: "使用する麹調味料や発酵",
+  category: "main",
+  labels: ["主菜", "肉", "野菜", "塩麹"],
+  materials: "材料",
+  steps: "作り方",
+  point: "工夫したポイントや意図",
+  consent: "問題ありません",
+  imageId: "Google Driveの画像ファイルID"
+}
+```
 
-## 編集するファイル
+`category` は `main`, `side`, `sweets`, `drink` のいずれかを使います。
 
-- `index.html`: ページの骨組み
-- `styles.css`: デザイン
-- `app.js`: コンテンツ、検索、絞り込み、詳細表示
-- `assets/fermentation-hero.png`: トップ画像
+`labels` には、検索・絞り込みに使いたい言葉を入れます。例: `肉`, `魚`, `野菜`, `前菜`, `スープ`, `サラダ`, `デザート`, `飲み物`, `醤油麹`, `塩麹`。
 
-新しい記録を追加するときは、まず `app.js` の `contents` と `contentDetails` に追記します。
+Google Drive画像は、画像ファイルまたは格納フォルダを「リンクを知っている全員が閲覧可」にしてください。
