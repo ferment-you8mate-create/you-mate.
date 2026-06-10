@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>発酵・地域フィールドワーク ナレッジライブラリ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-inner">
+        <div>
+          <p class="eyebrow">Course Knowledge Archive</p>
+          <h1>
+            <span>発酵・地域</span>
+            <span>フィールドワーク</span>
+            <span>ナレッジライブラリ</span>
+          </h1>
+          <p class="lead">
+            講座、フィールドワーク、工場見学、料理デモ、事業相談の記録を、発酵・地域・伝統・商品開発の読み物アーカイブとして整理しました。
+          </p>
+        </div>
+        <div class="hero-panel" aria-label="ライブラリ概要">
+          <div>
+            <span class="metric" id="contentCount">0</span>
+            <span class="metric-label">コンテンツ</span>
+          </div>
+          <div>
+            <span class="metric" id="tagCount">0</span>
+            <span class="metric-label">ラベル</span>
+          </div>
+          <div>
+            <span class="metric" id="regionCount">0</span>
+            <span class="metric-label">地域</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="検索と絞り込み">
+        <div class="search-wrap">
+          <label for="searchInput">検索</label>
+          <input id="searchInput" type="search" placeholder="例：麹、干物、石垣、醤油、オリーブオイル、講座" />
+        </div>
+        <div class="select-grid">
+          <label>
+            ジャンル
+            <select id="categoryFilter">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+          <label>
+            地域
+            <select id="regionFilter">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="tag-band" aria-label="ラベル">
+        <button class="tag-button active" data-tag="all">すべて</button>
+        <div id="tagButtons" class="tag-buttons"></div>
+      </section>
+
+      <section class="layout">
+        <aside class="sidebar">
+          <h2>分類</h2>
+          <div id="categoryStats" class="stat-list"></div>
+          <h2>使い方</h2>
+          <p>
+            検索窓はタイトル、要約、本文、タグ、活用案まで横断します。カードを開くと、背景の読み物、知識点、講座化の切り口が見られます。
+          </p>
+        </aside>
+
+        <section class="content-area">
+          <div class="result-bar">
+            <p id="resultCount">0件</p>
+            <button id="resetButton" type="button">絞り込みを解除</button>
+          </div>
+          <div id="cards" class="cards" aria-live="polite"></div>
+          <p id="emptyState" class="empty-state" hidden>該当するコンテンツがありません。キーワードやラベルを変えてみてください。</p>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="detailDialog" class="detail-dialog">
+      <button id="closeDialog" class="close-button" aria-label="閉じる">×</button>
+      <article id="detailContent"></article>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
